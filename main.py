@@ -14,7 +14,6 @@ if __name__ == '__main__':
     hide_phone_number("1-202-555-0199")
     hide_phone_number("44-7459-123456")
 
-
     hide_phone_number("61410-87654")
     hide_phone_number("61410-876543")
     hide_phone_number("1-4165550123")
