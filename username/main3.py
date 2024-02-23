@@ -1,10 +1,8 @@
-# 打开原始文件进行读取
-with open('all_usernames.txt', 'r') as infile:
-    # 创建一个新文件用于写入包含大写字母的行
-    with open('uppercase_usernames.txt', 'w') as outfile:
-        # 逐行读取原始文件
-        for line in infile:
-            # 检查当前行是否包含大写字母
-            if any(char.isupper() for char in line):
-                # 如果包含大写字母，则将该行写入新文件
-                outfile.write(line)
+# 打开文件
+with open('username_identifier.txt', 'r') as file:
+    # 读取文件的所有行
+    lines = file.readlines()
+
+# 统计行数
+num_lines = len(lines)
+print("文件中的条数为:", num_lines)
