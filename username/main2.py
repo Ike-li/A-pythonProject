@@ -50,7 +50,7 @@ def get_user_statements(user_id):
 
 
 file_path = "duplicate_usernames.txt"
-output_file_path = 'user_info_1.txt'
+output_file_path = 'user_info.txt'
 # line_num = 0
 
 with open(output_file_path, 'a') as output_file:

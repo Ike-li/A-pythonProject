@@ -1,5 +1,5 @@
 # 打开文件
-with open('username_identifier.txt', 'r') as file:
+with open('user.txt', 'r') as file:
     # 读取文件的所有行
     lines = file.readlines()
 

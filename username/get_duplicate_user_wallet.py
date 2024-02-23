@@ -32,7 +32,7 @@ def get_user_currencies(user_id):
     return currencies
 
 
-file_path = "user_info_1.txt"
+file_path = "user_info.txt"
 output_file_path = 'duplicate_user_wallet.txt'
 # line_num = 0
 
