@@ -109,7 +109,7 @@ class SingletonMeta(type):
 
 class Singleton(metaclass=SingletonMeta):
     """
-    通过装饰器实现单例模式
+    通过元类实现单例模式
     """
     pass
 
