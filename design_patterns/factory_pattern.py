@@ -15,6 +15,7 @@ class Car:
     """
     定义一个通用的汽车接口，所有的汽车都应该实现 drive() 方法。
     """
+
     def drive(self):
         pass
 
@@ -24,6 +25,7 @@ class Sedan(Car):
     """
     轿车类，继承自 Car 类，实现 drive() 方法。
     """
+
     def drive(self):
         return "Driving a sedan."
 
@@ -32,6 +34,7 @@ class Truck(Car):
     """
     卡车类，继承自 Car 类，实现 drive() 方法。
     """
+
     def drive(self):
         return "Driving a truck."
 
@@ -41,6 +44,7 @@ class CarFactory:
     """
     工厂类，根据输入条件创建不同类型的汽车对象。
     """
+
     @staticmethod
     def get_vehicle(car_type):
         if car_type == "sedan":
@@ -75,6 +79,7 @@ car2.drive()  # "Driving a truck."
 # 1.定义商品接口和具体实现类：
 class Coupon:
     """优惠券"""
+
     def send(self, u_id, coupon_number, uuid):
         print(f"优惠券已发放给用户: {u_id}, 优惠券编号: {coupon_number}, UUID: {uuid}")
 
@@ -83,6 +88,7 @@ class PhysicalGoods:
     """
     实物商品
     """
+
     def deliver(self, req):
         print(f"实物商品已发货，发货地址：{req['address']}, 商品ID: {req['product_id']}")
 
@@ -91,6 +97,7 @@ class Token:
     """
     第三方兑换卡
     """
+
     def grant(self, mobile_number, card_id):
         print(f"兑换卡已发放，手机号：{mobile_number}, 卡ID: {card_id}")
 
@@ -100,6 +107,7 @@ class AwardFactory:
     """
     奖品工厂类，根据输入条件创建不同类型的奖品对象。
     """
+
     @staticmethod
     def create_award(award_type):
         if award_type == "coupon":
@@ -126,3 +134,157 @@ goods.deliver(req={"address": "北京市朝阳区", "product_id": "P123"})
 # 发放兑换卡
 token = factory.create_award("token")
 token.grant(mobile_number="13800138000", card_id="TK789")
+"""
+案例 2：日志系统的日志记录器
+场景描述
+假设一个系统需要支持多种日志记录方式：
+文件日志：将日志写入本地文件。
+数据库日志：将日志存储到数据库。
+网络日志：将日志发送到远程服务器。
+"""
+
+
+class Logger:
+    """
+    日志接口
+    """
+
+    def log(self, message):
+        pass
+
+
+class FileLogger(Logger):
+    """
+    文件日志
+    """
+
+    def log(self, message):
+        with open("log.txt", "a") as f:
+            f.write(message + "\n")
+        print("日志已写入文件")
+
+
+class DatabaseLogger(Logger):
+    """
+    数据库日志
+    """
+
+    def log(self, message):
+        # 假设这里是将日志存储到数据库的代码
+        print("日志已存储到数据库")
+
+
+class NetworkLogger(Logger):
+    """
+    网络日志
+    """
+
+    def log(self, message):
+        # 假设这里是将日志发送到远程服务器的代码
+        print("日志已发送到远程服务器")
+
+
+class LoggerFactory:
+    """
+    日志工厂类，根据输入条件创建不同类型的日志记录器对象。
+    """
+
+    @staticmethod
+    def get_logger(logger_type):
+        if logger_type == "file":
+            return FileLogger()
+        elif logger_type == "database":
+            return DatabaseLogger()
+        elif logger_type == "network":
+            return NetworkLogger()
+        else:
+            raise ValueError("未知的日志类型")
+
+
+logger_factory = LoggerFactory()
+
+# 使用文件日志
+file_logger = logger_factory.get_logger("file")
+file_logger.log("这是一个文件日志消息")
+
+# 使用数据库日志
+database_logger = logger_factory.get_logger("database")
+database_logger.log("这是一个数据库日志消息")
+
+# 使用网络日志
+network_logger = logger_factory.get_logger("network")
+network_logger.log("这是一个网络日志消息")
+"""
+案例 3：支付系统的支付方式
+在电商平台或金融系统中，支付是一个核心功能。不同的支付方式（如支付宝、微信支付、信用卡支付）可能有不同的实现逻辑，可以通过工厂模式来统一管理。
+场景描述
+假设一个支付系统支持以下三种支付方式：
+支付宝支付：调用支付宝的支付接口。
+微信支付：调用微信的支付接口。
+信用卡支付：调用银行的支付接口。
+"""
+
+
+class Payment:
+    """
+    支付接口
+    """
+
+    def pay(self, amount):
+        pass
+
+
+class AliPay(Payment):
+    """
+    支付宝支付
+    """
+
+    def pay(self, amount):
+        print(f"通过支付宝支付了{amount}元")
+
+
+class WechatPay(Payment):
+    """
+    微信支付
+    """
+
+    def pay(self, amount):
+        print(f"通过微信支付了{amount} 元")
+
+
+class CreditPay(Payment):
+    """
+    信用卡支付
+    """
+
+    def pay(self, amount):
+        print(f"通过信用卡支付了{amount}元")
+
+
+class PaymentFactory:
+    """
+    支付工厂类
+    """
+
+    @staticmethod
+    def create_payment(payment_type):
+        if payment_type == "alipay":
+            return AliPay()
+        elif payment_type == "wechat":
+            return WechatPay()
+        elif payment_type == "credit_card":
+            return CreditPay()
+        else:
+            raise ValueError("未知的支付方式")
+
+
+payment_factory = PaymentFactory()
+
+alipay = payment_factory.create_payment("alipay")
+alipay.pay(10)
+
+wechat_pay = payment_factory.create_payment("wechat")
+wechat_pay.pay(100)
+
+credit_card_pay = payment_factory.create_payment("credit_card")
+credit_card_pay.pay(1000)
