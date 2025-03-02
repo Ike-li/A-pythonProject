@@ -157,3 +157,17 @@ client_code(TeslaFactory())
 # 使用宝马工厂
 print("Using BMW Factory:")
 client_code(BMWFactory())
+
+
+"""
+Using Tesla Factory:
+Sedan: Tesla Model 3 - Electric Sedan
+SUV: Tesla Model Y - Electric SUV
+Core Component: Tesla Battery Management System (BMS)
+*****************
+Using BMW Factory:
+Sedan: BMW 3 Series - Sedan with Gas Engine
+SUV: BMW X5 - SUV with Gas Engine
+Core Component: BMW Engine Control System
+*****************
+"""
