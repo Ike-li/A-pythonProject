@@ -23,3 +23,12 @@ class D(B, C):
 
 d = D()
 print(D.__mro__)
+
+
+"""
+A init
+C init
+B init
+D init
+(<class '__main__.D'>, <class '__main__.B'>, <class '__main__.C'>, <class '__main__.A'>, <class 'object'>)
+"""
