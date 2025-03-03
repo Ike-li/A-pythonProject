@@ -34,9 +34,7 @@ def worker(arg1, arg2):
 
 
 # 创建线程并传递参数
-thread = threading.Thread(target=worker,
-                          args=("hello", "world"),
-                          name="MyThread")
+thread = threading.Thread(target=worker, args=("hello", "world"), name="MyThread")
 thread.start()
 
 ########################################################################################################################
