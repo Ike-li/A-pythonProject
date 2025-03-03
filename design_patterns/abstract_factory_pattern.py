@@ -61,7 +61,7 @@ class TeslaCoreBattery(CoreComponent):
     """
 
     def describe(self):
-        return "Tesla Battery Management System"
+        return "Tesla Battery System"
 
 
 class BMW3Series(Sedan):
@@ -163,7 +163,7 @@ client_code(BMWFactory())
 Using Tesla Factory:
 Sedan: Tesla Model 3 - Sedan
 SUV: Tesla Model Y - SUV
-Core Component: Tesla Battery Management System
+Core Component: Tesla Battery System
 *****************
 Using BMW Factory:
 Sedan: BMW 3 Series - Sedan
