@@ -1,49 +1,25 @@
-class Animal:
-    def __init__(self, name):
-        self.name = name
-        print("Animal")
-
-    def speak(self):
-        print("This is an animal speaking.")
+class A:
+    def __init__(self):
+        print("A init")
 
 
-class Cat(Animal):
-    def __init__(self, name):
-        super().__init__(name)
-        print("Cat")
-
-    def speak(self):
-        print("The cat is meowing.")
+class B(A):
+    def __init__(self):
+        super().__init__()
+        print("B init")
 
 
-class Dog(Animal):
-    def __init__(self, name):
-        super().__init__(name)
-        print("Dog")
-
-    def speak(self):
-        print("The dog is barking.")
+class C(A):
+    def __init__(self):
+        super().__init__()
+        print("C init")
 
 
-class CatDog(Cat, Dog):
-    def __init__(self, name):
-        super().__init__(name)
-        print("CatDog")
-
-    def speak(self):
-        print("The CatDog is 汪汪汪")
+class D(B, C):
+    def __init__(self):
+        super().__init__()
+        print("D init")
 
 
-print(CatDog.mro())
-
-cat_dog = CatDog("猫狗")
-cat_dog.speak()
-
-"""
-CatDog.__init__
-    └── Cat.__init__
-        └── Animal.__init__  # Prints "Animal"
-    └── Dog.__init__         # Prints "Dog"
-    └── Cat.__init__        # Prints "Cat"
-    └── CatDog.__init__     # Prints "CatDog"
-"""
+d = D()
+print(D.__mro__)
