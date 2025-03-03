@@ -37,25 +37,25 @@ class CoreComponent:
         pass
 
 
-class TeslaSedan(Sedan):
+class TeslaModel3(Sedan):
     """
     特斯拉轿车类
     """
 
     def display_info(self):
-        return "Tesla Model 3 - Electric Sedan"
+        return "Tesla Model 3 - Sedan"
 
 
-class TeslaSUV(SUV):
+class TeslaModelY(SUV):
     """
     特斯拉SUV类
     """
 
     def display_info(self):
-        return "Tesla Model Y - Electric SUV"
+        return "Tesla Model Y - SUV"
 
 
-class TeslaCoreComponent(CoreComponent):
+class TeslaCoreBattery(CoreComponent):
     """
     特斯拉核心部件类:电池管理系统
     """
@@ -70,7 +70,7 @@ class BMW3Series(Sedan):
     """
 
     def display_info(self):
-        return "BMW 3 Series - Sedan with Gas Engine"
+        return "BMW 3 Series - Sedan"
 
 
 class BMWX5(SUV):
@@ -79,16 +79,16 @@ class BMWX5(SUV):
     """
 
     def display_info(self):
-        return "BMW X5 - SUV with Gas Engine"
+        return "BMW X5 - SUV"
 
 
-class BMWEngineControl(CoreComponent):
+class BMWEngine(CoreComponent):
     """
     宝马核心部件类：发动机控制系统
     """
 
     def describe(self):
-        return "BMW Engine Control System"
+        return "BMW Engine System"
 
 
 class AbstractFactory:
@@ -112,13 +112,13 @@ class TeslaFactory(AbstractFactory):
     """
 
     def create_sedan(self):
-        return TeslaSedan()
+        return TeslaModel3()
 
     def create_suv(self):
-        return TeslaSUV()
+        return TeslaModelY()
 
     def create_core_component(self):
-        return TeslaCoreComponent()
+        return TeslaCoreBattery()
 
 
 class BMWFactory(AbstractFactory):
@@ -133,7 +133,7 @@ class BMWFactory(AbstractFactory):
         return BMWX5()
 
     def create_core_component(self):
-        return BMWEngineControl()
+        return BMWEngine()
 
 
 def client_code(factory):
@@ -161,13 +161,13 @@ client_code(BMWFactory())
 
 """
 Using Tesla Factory:
-Sedan: Tesla Model 3 - Electric Sedan
-SUV: Tesla Model Y - Electric SUV
-Core Component: Tesla Battery Management System (BMS)
+Sedan: Tesla Model 3 - Sedan
+SUV: Tesla Model Y - SUV
+Core Component: Tesla Battery Management System
 *****************
 Using BMW Factory:
-Sedan: BMW 3 Series - Sedan with Gas Engine
-SUV: BMW X5 - SUV with Gas Engine
-Core Component: BMW Engine Control System
+Sedan: BMW 3 Series - Sedan
+SUV: BMW X5 - SUV
+Core Component: BMW Engine System
 *****************
 """
