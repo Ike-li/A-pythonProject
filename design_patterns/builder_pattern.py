@@ -11,7 +11,7 @@ class Hamburger:
 
     def show_hamburger(self):
         print(
-            f"汉堡完成：\n面包：{self.bun}\n肉饼/素饼: {self.patty}\n 蔬菜: {self.vegetables}\n 酱料: {self.sauce}"
+            f"汉堡完成：\n面包：{self.bun}\n肉饼/素饼: {self.patty}\n蔬菜: {self.vegetables}\n酱料: {self.sauce}"
         )
 
 
