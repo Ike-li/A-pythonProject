@@ -11,6 +11,7 @@ class Database:
     """
     通过__new__方法实现单例模式
     """
+
     _instance = None
     _lock = threading.Lock()  # 添加一个锁对象
 
@@ -49,6 +50,7 @@ class Singleton:
     """
     通过__new__方法实现单例模式
     """
+
     _instance = None
 
     def __new__(cls, *args, **kwargs):
@@ -85,6 +87,7 @@ class MySingleton:
     """
     通过装饰器实现单例模式
     """
+
     pass
 
 
@@ -111,6 +114,7 @@ class Singleton(metaclass=SingletonMeta):
     """
     通过元类实现单例模式
     """
+
     pass
 
 
