@@ -8,6 +8,7 @@ class BankAccount:
     __owner 和 __balance 是私有属性，外部不能直接访问，只能通过方法（如 deposit 和 withdraw）来操作。
     这样可以保护数据，防止外部直接修改余额。
     """
+
     def __init__(self, owner, balance):
         self.__owner = owner  # 私有属性
         self.__balance = balance  # 私有属性
@@ -43,6 +44,7 @@ print(account.get_balance())  # 获取余额
 ########################################################################################################################
 class Animal:
     """父类"""
+
     def __init__(self, name):
         self.name = name
 
@@ -59,6 +61,7 @@ class Dog(Animal):  # 子类，继承Animal
     子类可以添加自己的方法（如 bark）。
     子类还可以修改父类的方法（称为方法重写）。
     """
+
     def bark(self):  # 添加自己的方法
         print(f"{self.name}正在叫")
 
@@ -75,18 +78,21 @@ dog.bark()  # 自己的方法
 ########################################################################################################################
 class Animal:
     """父类"""
+
     def make_sound(self):
         pass  # 父类定义接口，不实现具体功能
 
 
 class Dog(Animal):
     """子类"""
+
     def make_sound(self):  # 实现具体功能
         print("汪汪")
 
 
 class Cat(Animal):
     """子类"""
+
     def make_sound(self):  # 实现具体功能
         print("喵喵")
 
