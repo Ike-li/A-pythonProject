@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tornado 在线聊天室</title>
+    <link rel="stylesheet" href="{{ static_url('style.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="sidebar">
+            <h2>在线用户 (<span id="userCount">0</span>)</h2>
+            <div class="user-list" id="userList"></div>
+        </div>
+
+        <div class="main-content">
+            <h1>Tornado 在线聊天室</h1>
+            <div class="user-info">
+                <span id="currentNickname">{{ nickname }}</span>
+                <button id="changeNickname">更改昵称</button>
+            </div>
+
+            <div class="chat-messages" id="messages"></div>
+
+            <div class="chat-controls">
+                <div class="toolbar">
+                    <button id="emojiButton">😀</button>
+                    <button id="uploadButton">上传文件</button>
+                    <input type="file" id="fileInput" style="display: none;">
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="messageInput" placeholder="输入消息..." autocomplete="off">
+                    <button id="sendButton">发送</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="nicknameModal" class="modal">
+        <div class="modal-content">
+            <h2>更改昵称</h2>
+            <input type="text" id="newNickname" placeholder="输入新昵称">
+            <div class="modal-buttons">
+                <button id="confirmNickname">确认</button>
+                <button id="cancelNickname">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ static_url('script.js') }}"></script>
+</body>
+</html>

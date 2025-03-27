@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置昵称</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>设置您的昵称</h1>
+        <form method="POST">
+            {% module xsrf_form_html() %}
+            <input type="text" name="nickname" placeholder="输入昵称" required>
+            <button type="submit">进入聊天室</button>
+        </form>
+    </div>
+</body>
+</html>
