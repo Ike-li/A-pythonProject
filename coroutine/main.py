@@ -31,8 +31,10 @@ async def async_fetch_all(urls):
 if __name__ == "__main__":
     # 定义要爬取的网站列表
     urls = [
-        "https://www.example.com", "https://www.python.org",
-        "https://www.baidu.com", "https://www.bing.com"
+        "https://www.example.com",
+        "https://www.python.org",
+        "https://www.baidu.com",
+        "https://www.bing.com",
     ]
 
     start_time = time.time()
@@ -59,8 +61,10 @@ def fetch_all(urls):
 
 if __name__ == "__main__":
     urls = [
-        "https://www.example.com", "https://www.python.org",
-        "https://www.github.com", "https://www.bing.com"
+        "https://www.example.com",
+        "https://www.python.org",
+        "https://www.github.com",
+        "https://www.bing.com",
     ]
     start_time = time.time()
     fetch_all(urls)
