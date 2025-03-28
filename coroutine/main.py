@@ -63,7 +63,7 @@ if __name__ == "__main__":
     urls = [
         "https://www.example.com",
         "https://www.python.org",
-        "https://www.github.com",
+        "https://www.baidu.com",
         "https://www.bing.com",
     ]
     start_time = time.time()
