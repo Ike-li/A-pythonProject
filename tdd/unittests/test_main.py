@@ -20,3 +20,7 @@ def test_cat():
 def test_cat_():
     cat = Cat()
     assert cat.meow() == "meow, meow"
+
+
+def test_failed():
+    raise ValueError

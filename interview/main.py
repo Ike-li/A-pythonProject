@@ -1,91 +1,299 @@
+""""""
+from functools import reduce
+
 """
-Q：解释型语言python和编译型语言的区别
-A： 1.解释型语言是在运行时才翻译成机器码，而编译型语言是在运行前就翻译成机器码
-    2.错误处理：解释型语言在运行时才发现错误，而编译型语言在编译时就发现错误
-    3.性能：解释型语言的性能比编译型语言低，因为解释型语言需要在运行时才翻译成机器码
-    4.跨平台性：解释型语言可以在不同的平台上运行，而编译型语言只能在特定的平台上运行
-"""
-"""
-Q: python3中 is 和 == 的区别
-A: 1.is 比较的是两个对象的内存地址是否相同
-   2.== 比较的是两个对象的值是否相同
-"""
-"""
-Q: Python 中 read、readline、readlines 有哪些区别？
-A: read() 方法用于从文件中读取指定的字节数，如果未给定或为负则读取所有。
-    readline() 方法用于从文件读取整行，包括 "\n" 字符。
-    readlines() 方法用于读取所有行并返回列表，若给定 sizehint 则读取指定长度的字节。
-"""
-"""
-什么是 Python 面向对象中的继承特点？
-A: 继承是面向对象编程的一种重要特性，它允许一个类（称为子类或派生类）从另一个类（称为父类或基类）继承属性和方法。
-    1.子类可以继承父类的所有属性和方法，并且可以添加自己的属性和方法。
-    2.子类可以重写父类的方法，以实现自己的行为。
-    3.子类可以使用 super() 函数调用父类的方法。
-    4.子类可以继承多个父类，称为多重继承。
-"""
-"""
-Q: Python 中 any() 和 all() 方法有什么作用？
-A: 1.any() 方法用于判断给定的可迭代参数 iterable 是否全部为 False，则返回 False，如果有一个为 True，则返回 True。
-    2.all() 方法用于判断给定的可迭代参数 iterable 是否全部为 True，则返回 True，如果有一个为 False，则返回 False。
-"""
-"""
-Q: 说明Python3中装饰器的用法
-A: 装饰器是一种设计模式，高级Python语法，它允许在不修改原始函数代码的情况下添加额外的功能。
-    1.装饰器是一个函数，它接受一个函数作为参数，并返回一个新的函数。
-    2.装饰器可以在函数调用前后执行代码。
-    3.装饰器可以用于日志记录、性能测试、事务处理、缓存、权限校验等多种场景
-    4.装饰器使用 @ 符号，放在函数定义的上面
+python 实现列表翻转
 """
 
 
-def decorator(func):
-    def wrapper(*args, **kwargs):
-        print("Before function call")
-        result = func(*args, **kwargs)
-        print("After function call")
-        return result
-
-    return wrapper
+def reverse_list_1(lst):
+    return lst[::-1]
 
 
-@decorator
-def my_function():
-    print("Function is called")
+print(reverse_list_1([1, 2, 3, 4]))
 
 
-my_function()
-"""
-Q: 说明Python3中yield的用法
-A: yield 是 Python 中的一个关键字，它可以用于定义一个生成器函数。
-    1.生成器函数是一个特殊的函数，它可以在执行过程中产生一系列的值，而不是一次性返回所有的值。
-    2.生成器函数使用 yield 关键字来返回值，每次调用生成器函数时，它会从上次离开的位置继续执行。
-    3.生成器函数可以使用 for 循环来遍历生成器函数返回的所有值。
-    4.生成器函数可以使用 next() 函数来获取生成器函数返回的下一个值。
-"""
+def reverse_list_2(lst):
+    lst1 = []
+    for i in lst:
+        lst1 = [i] + lst1
+    return lst1
 
 
-def my_generator():
-    yield 1
-    yield 2
-    yield 3
+print(reverse_list_2([1, 2, 3, 4]))
 
 
-for value in my_generator():
-    print(value)
+def reverse_list_3(lst):
+    lst.reverse()
+    return lst
 
-gen = my_generator()
-print(next(gen))
-print(next(gen))
-print(next(gen))
-"""
-Q: 说明Python3中的闭包的用法
-A: 闭包是一个函数，它可以访问其外部作用域中的变量，即使这些变量在函数调用时已经不存在。
-    1.闭包是一个函数，它可以访问其外部作用域中的变量。
-    2.闭包可以在函数调用时返回一个函数。
-    3.闭包可以用于实现装饰器、回调函数等功能。
-    4.闭包可以让函数保留状态，避免全局变量的使用。
-"""
-"""
+
+print(reverse_list_3([1, 2, 3, 4]))
+
 
 """
+python 实现字符串翻转
+"""
+
+
+def reverse_string_1(string):
+    return string[::-1]
+
+
+print(reverse_string_1("ABCD"))
+
+
+def reverse_string_2(string):
+    str1 = ""
+    for i in string:
+        str1 = i + str1
+    return str1
+
+
+print(reverse_string_2("ABCD"))
+
+s1 = reversed("ABCD")
+print("".join(s1))
+
+"""
+python 实现len函数
+"""
+
+
+def python_len_1(string):
+    return len(string)
+
+
+print(python_len_1("ABCD"))
+
+
+def python_len_2(string):
+    count = 0
+    for i in string:
+        count += 1
+    return count
+
+
+print(python_len_2("ABCD"))
+
+
+def python_len_3(string):
+    count = 0
+    while string[count:]:
+        count += 1
+    return count
+
+
+print(python_len_3("ABCD"))
+
+
+def python_len_4(string):
+    return sum(1 for i in string)
+
+
+print(python_len_4("ABCD"))
+
+
+def python_len_6(string):
+    return reduce(lambda x, y: x + 1, string)
+
+
+"""
+python 实现字符串去重
+"""
+
+
+def remove_duplicates_1(string):
+    return "".join(set(string))
+
+
+print(remove_duplicates_1("ABCDABCD"))
+
+
+def remove_duplicates_2(string):
+    lst = []
+    for i in string:
+        if i not in lst:
+            lst.append(i)
+    return "".join(lst)
+
+
+print(remove_duplicates_2("ABCDABCD"))
+
+
+def remove_duplicates_3(string):
+    return "".join(dict.fromkeys(string))
+
+
+print(remove_duplicates_3("ABCDABCD"))
+
+
+def remove_duplicates_4(string):
+    return "".join({}.fromkeys(string).keys())
+
+
+print(remove_duplicates_4("ABCDABCD"))
+
+
+def remove_duplicates_5(string):
+    return "".join({}.fromkeys(string))
+
+
+print(remove_duplicates_5("ABCDABCD"))
+
+
+"""
+python 实现返回数字的绝对值
+"""
+print(abs(-100))
+
+
+def python_abs_1(number):
+    if number > 0:
+        return number
+    else:
+        return -number
+
+
+print(python_abs_1(-100))
+
+
+def python_abs_2(number):
+    if number >= 0:
+        return number
+
+    return int(str(number)[1:])
+
+
+print(python_abs_2(-100))
+
+"""
+python 实现求和
+"""
+
+
+def python_sum_1(lst):
+    return sum(lst)
+
+
+print(python_sum_1([1, 2, 3, 4]))
+
+
+def python_sum_2(lst):
+    total = 0
+    for i in lst:
+        total += i
+    return total
+
+
+print(python_sum_2([1, 2, 3, 4]))
+
+
+def python_sum_3(lst):
+    return reduce(lambda x, y: x + y, lst)
+
+
+print(python_sum_3([1, 2, 3, 4]))
+print(isinstance("a", (int, float)))
+
+"""
+python 实现返回最小值
+"""
+
+print(min([1, 2, 3, 4]))
+
+
+def python_min_1(lst):
+    min_number = lst[0]
+    for i in lst[1:]:
+        if i < min_number:
+            min_number = i
+
+    return min_number
+
+
+print(python_min_1([1, 2, 3, 4]))
+
+"""
+python 实现返回最大值
+"""
+print(max([1, 2, 3, 4]))
+
+
+def find_max(lst):
+    max_value = lst[0]
+    for i in lst[1:]:
+        if max_value < i:
+            max_value = i
+    return max_value
+
+
+print(find_max([1, 2, 3, 4]))
+
+
+def find_max_value(lst):
+    max_value = lst[0].lower()
+    for i in lst[1:]:
+        if max_value < i:
+            max_value = i
+    return max_value
+
+
+print(find_max_value(["apple", "Banana", "cherry"]))
+
+# def test_find_max_value():
+#     assert find_max_value(["apple", "Banana", "cherry"]) == "cherry"
+
+"""
+python 实现四舍五入
+"""
+print(round(10.1))
+print(round(2.5))
+print(round(-2.7))
+
+
+def python_round(number, ndigits=None):
+    if ndigits is None:
+        return int(number + 0.5) if number > 0 else int(number - 0.5)
+    else:
+        factor = 10**ndigits
+        temp = number * factor
+        rounded = int(temp + 0.5) if temp >= 0 else int(temp - 0.5)
+        return rounded / factor
+
+
+print(python_round(10.1))
+print(python_round(10.9))
+print(python_round(10.15))
+print(python_round(10.5))
+
+
+"""
+python 实现幂运算
+"""
+print(pow(2, 3))
+
+
+def python_pow(base, exp):
+    return base**exp
+
+
+print(python_pow(2, 3))
+
+
+def python_pow_2(base, exp):
+    result = 1
+    for _ in range(exp):
+        result *= base
+    return result
+
+
+print(python_pow_2(2, 3))
+
+"""
+实现字符串的大小写转换
+"""
+
+
+def python_swapcase(string):
+    return string.swapcase()
